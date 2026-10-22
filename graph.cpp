@@ -64,10 +64,7 @@ void graph::chargerFichier(const std::string& chemin_fichier) {
             // Ligne d'arête
             int u, v;
             ss >> u >> v;
-            
-            // CORRECTION D'INDEXATION (1..N vers 0..N-1)
-            matrice[u - 1][v - 1] = 1;
-            matrice[v - 1][u - 1] = 1;
+            ajouterArete(u-1,v-1);
         }
     }
     fichier.close();
