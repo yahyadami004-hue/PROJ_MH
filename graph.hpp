@@ -32,7 +32,7 @@ class graph{
 
         void ajouterArete(int u, int v);
         void colorerSommet(int u, int col);
-        void graph::chargerFichier(const std::string& chemin_fichier);
+        void chargerFichier(const std::string& chemin_fichier);
 
         
 };
