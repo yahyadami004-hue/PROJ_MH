@@ -3,6 +3,9 @@
 
 
 
+#include <fstream>   // Pour lire les fichiers (std::ifstream)
+#include <sstream>   // Pour découper les lignes (std::stringstream)
+#include <string>    // Pour manipuler les chaînes de caractères (std::string)
 #include <vector>
 #include <iostream>
 #include <cstdlib>
@@ -12,18 +15,8 @@ class graph{
         int nb_sommet;
         int nb_arete;
         std::vector<std::vector<int>> matrice;
-        int nb_couleur;
-        std::vector<int> coloration;       //liste des couleurs de chaque sommet (-1 = pas de couleur)
-    public : 
-        graph(int V, int E) : 
-            nb_sommet(V), 
-            nb_arete(E), 
-            matrice(V, std::vector<int>(V, 0)),
-            nb_couleur(0), 
-            coloration(V, -1) {}
+        std::vector<int> coloration;       
 
-        void ajouterArete(int u, int v);
-        void colorerSommet(int u, int col);
 };
 
 
