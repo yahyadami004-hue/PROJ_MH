@@ -49,12 +49,10 @@ void graph::chargerFichier(const std::string& chemin_fichier) {
         char type_ligne;
         ss >> type_ligne;
 
-        if (type_ligne == 'c') {
-            // C'est un commentaire. On passe à la ligne suivante.
+        if (type_ligne == 'c') {// commentaires
             continue;
         } 
-        else if (type_ligne == 'p') {
-            // Ligne d'en-tête DIMACS
+        else if (type_ligne == 'p') { //en-tête : nb de sommets, nb arêtes
             std::string mot_cle_edge;
             ss >> mot_cle_edge >> nb_sommet >> nb_arete;
             
