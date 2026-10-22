@@ -1,5 +1,32 @@
 #include "graph.hpp"
 
+void graph::ajouterArete(int u, int v) {
+    if (u < -1 || u >= nb_sommet){
+        std::cerr << "Erreur ajout arête : le sommet u n'existe pas\n";
+        exit(1);
+    }
+    if (v < -1 || v >= nb_sommet){
+        std::cerr << "Erreur ajout arête : le sommet u n'existe pas\n";
+        exit(1);
+    }
+    matrice[u][v] = 1;
+    matrice[v][u] = 1;
+}
+
+void graph::colorerSommet(int u, int col){
+    if (u < -1 || u >= nb_sommet){
+        std::cerr << "Erreur coloration : le sommet u n'existe pas\n";
+        exit(1);
+    }
+    if (col > nb_couleur){
+        std::cerr << "Erreur : essaye d'assigner une couleur trop grande\n";
+        exit(1);
+    }
+    else if (col == nb_couleur){
+        nb_couleur += 1;
+    }
+    coloration[u] = col;
+}
 
 
 
