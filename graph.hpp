@@ -1,7 +1,9 @@
 #ifndef GRAPH_HPP
 #define GRAPH_HPP
 
-
+#include <fstream> 
+#include <sstream>   
+#include <string>
 
 #include <vector>
 #include <iostream>
@@ -14,7 +16,13 @@ class graph{
         std::vector<std::vector<int>> matrice;
         int nb_couleur;
         std::vector<int> coloration;       //liste des couleurs de chaque sommet (-1 = pas de couleur)
+    
     public : 
+
+        graph() : nb_sommet(0), nb_arete(0) {};    // Constructeur par défaut
+        graph(const std::string& chemin_fichier) {
+            chargerFichier(chemin_fichier);
+        } // Constructeur qui prend le chemin du fichier et lance le parsing directement      
         graph(int V, int E) : 
             nb_sommet(V), 
             nb_arete(E), 
@@ -24,6 +32,9 @@ class graph{
 
         void ajouterArete(int u, int v);
         void colorerSommet(int u, int col);
+        void graph::chargerFichier(const std::string& chemin_fichier);
+
+        
 };
 
 
