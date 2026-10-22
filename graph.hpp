@@ -19,8 +19,10 @@ class graph{
     
     public : 
 
-        graph() : nb_sommet(0), nb_arete(0) {};    // Constructeur par défaut
-        graph(const std::string& chemin_fichier) {
+        graph(const std::string& chemin_fichier) :
+            nb_sommet(0),
+            nb_arete(0),
+            nb_couleur(0) {
             chargerFichier(chemin_fichier);
         } // Constructeur qui prend le chemin du fichier et lance le parsing directement      
         graph(int V, int E) : 
@@ -32,7 +34,28 @@ class graph{
 
         void ajouterArete(int u, int v);
         void colorerSommet(int u, int col);
+        void sansCouleur(); //assigne la couleur -1 à tous les sommets.
+
         void chargerFichier(const std::string& chemin_fichier);
+
+        int get_nb_sommet() const{ 
+                return(nb_sommet);
+        }
+        int get_nb_arete() const{ 
+                return(nb_arete);
+        }
+        int get_nb_couleur() const{ 
+                return(nb_couleur);
+        }
+
+        int get_valeur_matrice(int u, int v) const {
+            return matrice.at(u).at(v);
+        }
+
+        int get_couleur_sommet(int u) const {
+            return coloration.at(u);
+        }
+
 
         
 };
