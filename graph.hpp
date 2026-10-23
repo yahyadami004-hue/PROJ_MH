@@ -17,6 +17,7 @@ class graph{
         int nb_couleur;
         std::vector<int> coloration;       //liste des couleurs de chaque sommet (-1 = pas de couleur)
         std::vector<std::vector<int>> nbConflits; //nbConflits[u][c] nb de voisins de v avec la couleur c
+        int cout_total;
     public : 
 
         graph(const std::string& chemin_fichier) :

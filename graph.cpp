@@ -50,7 +50,10 @@ void graph::init_conflit(){
  
     for (int u = 0; u< nb_sommet; u++)
         for (int v; v< nb_sommet; v++) {
-            if (matrice[u][v] == 1) nbConflits[u][coloration[v]]+=1;
+            if (matrice[u][v] == 1) {
+                nbConflits[u][coloration[v]]+=1;
+                cout_total+=1;
+            }
         }
 
 }
