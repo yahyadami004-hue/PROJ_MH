@@ -38,6 +38,22 @@ void graph::sansCouleur(){
         coloration[i] = -1;
     }
 }
+void graph::toutCouleur(){
+    nb_couleur = 1;
+    for (int i = 0; i < get_nb_sommet(); i++){
+        coloration[i] = 0;
+    }
+}
+
+void graph::init_conflit(){
+    nbConflits.assign(nb_sommet, std::vector<int>(nb_couleur, 0));
+ 
+    for (int u = 0; u< nb_sommet; u++)
+        for (int v; v< nb_sommet; v++) {
+            if (matrice[u][v] == 1) nbConflits[u][coloration[v]]+=1;
+        }
+
+}
 
 
 

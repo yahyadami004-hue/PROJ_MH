@@ -16,7 +16,7 @@ class graph{
         std::vector<std::vector<int>> matrice;
         int nb_couleur;
         std::vector<int> coloration;       //liste des couleurs de chaque sommet (-1 = pas de couleur)
-    
+        std::vector<std::vector<int>> nbConflits; //nbConflits[u][c] nb de voisins de v avec la couleur c
     public : 
 
         graph(const std::string& chemin_fichier) :
@@ -31,11 +31,11 @@ class graph{
             matrice(V, std::vector<int>(V, 0)),
             nb_couleur(0), 
             coloration(V, -1) {}
-
+        void init_conflit();
         void ajouterArete(int u, int v);
         void colorerSommet(int u, int col);
         void sansCouleur(); //assigne la couleur -1 à tous les sommets.
-
+        void toutCouleur();
         void chargerFichier(const std::string& chemin_fichier);
 
         int get_nb_sommet() const{ 
@@ -55,6 +55,13 @@ class graph{
         int get_couleur_sommet(int u) const {
             return coloration.at(u);
         }
+
+        bool is_conflict(int u, int v) const{
+            return(matrice.at(u).at(v) == 1 && coloration.at(u) == coloration.at(v) && coloration.at(u) != -1);
+        }
+
+
+
 
 
         
