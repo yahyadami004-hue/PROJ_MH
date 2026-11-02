@@ -144,7 +144,7 @@ void graph::chargerFichier(const std::string& chemin_fichier) {
             int sommets;
             int aretes;
             if (en_tete_lue || !(ss >> mot_cle_edge >> sommets >> aretes) ||
-                mot_cle_edge != "edge" || sommets < 0 || aretes < 0) {
+                (mot_cle_edge != "edge" && mot_cle_edge != "col") || sommets < 0 || aretes < 0) {
                 std::cerr << "Erreur : en-tete de graphe invalide\n";
                 exit(1);
             }
@@ -186,3 +186,5 @@ void graph::chargerFichier(const std::string& chemin_fichier) {
     std::cout << "Succes : Graphe charge avec " << nb_sommet << " sommets et "
               << nb_arete << " aretes et " << nb_couleur << " couleurs\n";
 }
+
+
